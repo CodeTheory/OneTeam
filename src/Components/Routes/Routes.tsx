@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "../Home";
 import Users from "../Users/Users";
 import NavBar from "../NavBar";
-import AuthProp from "../AuthProp";
+import PrivateRoute from "../PrivateRoute";
 
 const Routes = () => {
   return (
@@ -12,11 +12,9 @@ const Routes = () => {
       <Route exact path="/">
         <Home />
       </Route>
-      <AuthProp>
-        <Route exact path="/Users">
-          <Users />
-        </Route>
-      </AuthProp>
+      <PrivateRoute path="/users">
+        <Users />
+      </PrivateRoute>
       <div className="app-tings">OneTeam</div>
     </Router>
   );
